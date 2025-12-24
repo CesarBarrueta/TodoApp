@@ -51,5 +51,9 @@ El proyecto se encuentra contenerizado mediante Docker para garantizar la parida
    ```bash
    docker-compose up --build
 3. Ya es posible acceder al back y front
+
+   
     Interfaz de usuario: http://localhost:5173
+
+    
     API: http://localhost:3000/tasks
