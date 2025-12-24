@@ -1,3 +1,5 @@
+import type { Task, CreateTaskInput } from '../types/task';
+
 const API_URL = 'http://localhost:3000/tasks';
 
 export const taskService = {
