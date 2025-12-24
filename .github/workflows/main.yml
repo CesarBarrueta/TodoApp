@@ -1,0 +1,32 @@
+name: Fullstack CI
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  # USANDO ACCIONES OFICIALES
+  quality-check:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Action oficial para descargar tu código
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Action oficial para configurar Node.js
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm' # Ya hace el cacheo automáticamente
+
+      # 3. Instalación y Test (Acciones compuestas)
+      - name: Install and Build Backend
+        run: |
+          npm install --prefix backend
+          cd backend && npm run build --if-present
+
+      - name: Install and Build Frontend
+        run: |
+          npm install --prefix frontend
+          cd frontend && npm run build
